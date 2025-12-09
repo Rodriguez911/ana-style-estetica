@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros | Ana Style Estética</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Base Styles */
+        :root { --color-pink-soft: #F9EBEA; --color-pink-dark: #D4A5A5; --color-white: #FFFFFF; --color-gold: #C5A059; --color-text-main: #4A4A4A; --font-title: 'Dancing Script', cursive; --font-body: 'Montserrat', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); color: var(--color-text-main); }
+        header { position: sticky; top: 0; background: rgba(255,255,255,0.95); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000; }
+        .logo { font-family: var(--font-title); font-size: 2rem; font-weight: bold; }
+        .logo span { color: var(--color-gold); }
+        nav ul { display: flex; gap: 2rem; list-style: none; }
+        nav a { text-decoration: none; color: inherit; transition: 0.3s; }
+        nav a:hover, nav a.active { color: var(--color-gold); border-bottom: 2px solid var(--color-gold); }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
+        @media (max-width: 768px) { nav ul { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: white; flex-direction: column; text-align: center; padding: 1rem; box-shadow: 0 5px 10px rgba(0,0,0,0.1); } nav ul.active { display: flex; } .mobile-menu-btn { display: block; } }
+
+        /* Nosotros Content */
+        .about-hero { padding: 4rem 10%; display: flex; align-items: center; gap: 3rem; background: var(--color-white); }
+        .about-text { flex: 1; }
+        .about-text h1 { font-family: var(--font-title); font-size: 3rem; color: var(--color-gold); margin-bottom: 1.5rem; }
+        .about-text p { margin-bottom: 1rem; color: #666; font-size: 1.1rem; }
+        .about-img { flex: 1; position: relative; }
+        .about-img img { width: 100%; border-radius: 20px; box-shadow: 20px 20px 0 var(--color-pink-soft); }
+
+        .team { padding: 4rem 10%; background: var(--color-pink-soft); text-align: center; }
+        .team h2 { font-family: var(--font-title); font-size: 2.5rem; color: var(--color-gold); margin-bottom: 2rem; }
+        .team-grid { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        .team-member { background: white; padding: 2rem; border-radius: 10px; width: 250px; }
+        .member-avatar { width: 100px; height: 100px; background: #ddd; border-radius: 50%; margin: 0 auto 1rem; overflow: hidden;}
+        .member-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        
+        @media (max-width: 768px) { .about-hero { flex-direction: column; } }
+
+        footer { background: #333; color: white; padding: 2rem; text-align: center;}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Ana Style <span>Estética</span></div>
+        <div class="mobile-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="nosotros.html" class="active">Nosotros</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <div class="about-img">
+             <!-- Imagen del equipo/local -->
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=1000" alt="Interior del centro">
+        </div>
+        <div class="about-text">
+            <h1>Nuestra Historia</h1>
+            <p>Ana Style Estética nació en el corazón de Santa Ponsa con una misión clara: crear un espacio donde la belleza se encuentre con la serenidad.</p>
+            <p>Con más de 10 años de experiencia, nos hemos especializado en tratamientos personalizados, entendiendo que cada piel y cada persona es única. Utilizamos productos de primera calidad, libres de crueldad animal y respetuosos con el medio ambiente.</p>
+        </div>
+    </section>
+
+    <section class="team">
+        <h2>El Equipo</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-avatar"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=500" alt="Ana"></div>
+                <h3>Ana</h3>
+                <p>Fundadora & Especialista Facial</p>
+            </div>
+            <div class="team-member">
+                <div class="member-avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=500" alt="Laura"></div>
+                <h3>Laura</h3>
+                <p>Técnica de Uñas & Pestañas</p>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>&copy; 2023 Ana Style Estética.</p></footer>
+    <script>function toggleMenu() { document.getElementById('nav-list').classList.toggle('active'); }</script>
+</body>
+</html>
