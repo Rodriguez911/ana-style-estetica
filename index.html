@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     
-    <!-- Iconos (FontAwesome - versión CDN gratuita para iconos básicos) -->
+    <!-- Iconos (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -114,17 +114,6 @@
             box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
         }
 
-        .btn-secondary {
-            background-color: transparent;
-            border-color: var(--color-white);
-            color: var(--color-white);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--color-white);
-            color: var(--color-pink-dark);
-        }
-
         /* --- HEADER Y NAVEGACIÓN --- */
         header {
             position: fixed;
@@ -193,7 +182,7 @@
             text-align: center;
             color: var(--color-white);
             padding: 0 1rem;
-            margin-top: 60px; /* Offset header height */
+            margin-top: 60px;
         }
 
         .hero-content {
@@ -623,28 +612,39 @@
             </div>
 
             <div class="contact-form">
-                <form id="bookingForm" onsubmit="handleBooking(event)">
+                <!-- FORMULARIO CONECTADO A TU CORREO -->
+                <form action="https://formspree.io/f/xldqwvey" method="POST">
+                    
                     <div class="form-group">
                         <label>Nombre Completo</label>
-                        <input type="text" placeholder="Tu nombre" required>
+                        <input type="text" name="nombre" placeholder="Tu nombre" required>
                     </div>
+
+                    <div class="form-group">
+                        <label>Email (Obligatorio para responderte)</label>
+                        <input type="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+
                     <div class="form-group">
                         <label>Teléfono</label>
-                        <input type="tel" placeholder="Tu teléfono" required>
+                        <input type="tel" name="telefono" placeholder="Tu teléfono" required>
                     </div>
+
                     <div class="form-group">
                         <label>Servicio de interés</label>
-                        <select>
+                        <select name="servicio">
                             <option value="manicura">Manicura / Pedicura</option>
                             <option value="facial">Tratamiento Facial</option>
                             <option value="pestañas">Pestañas y Cejas</option>
                             <option value="masaje">Masaje Corporal</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label>Mensaje (Opcional)</label>
-                        <textarea rows="4" placeholder="¿Tienes alguna preferencia horaria o duda?"></textarea>
+                        <textarea name="mensaje" rows="4" placeholder="¿Tienes alguna preferencia horaria o duda?"></textarea>
                     </div>
+
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitud</button>
                 </form>
             </div>
@@ -667,19 +667,6 @@
         function toggleMenu() {
             const navList = document.getElementById('nav-list');
             navList.classList.toggle('active');
-        }
-
-        // Simulación de envío de formulario (para conectar con Java Backend más tarde)
-        function handleBooking(event) {
-            event.preventDefault(); // Evita que la página se recargue
-            
-            // Aquí iría la lógica AJAX para enviar los datos a tu Servlet/Controller de Java
-            // Ej: fetch('/api/reservar', { method: 'POST', body: ... })
-            
-            alert("¡Gracias por tu solicitud! \n\nEsta es una versión de prueba. En la versión final, estos datos se enviarán al servidor Java para gestionar la cita.");
-            
-            // Limpiar formulario
-            document.getElementById('bookingForm').reset();
         }
 
         // Smooth Scroll para los enlaces del menú
