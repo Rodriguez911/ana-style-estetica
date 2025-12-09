@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Style Estética | Belleza y Bienestar en Santa Ponsa</title>
+    
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Iconos (FontAwesome - versión CDN gratuita para iconos básicos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES CSS (Paleta de Colores) --- */
+        :root {
+            --color-pink-soft: #F9EBEA;    /* Rosa empolvado fondo */
+            --color-pink-dark: #D4A5A5;    /* Rosa más oscuro para detalles */
+            --color-white: #FFFFFF;        /* Blanco puro */
+            --color-gold: #C5A059;         /* Oro suave */
+            --color-grey-light: #F4F4F4;   /* Gris muy claro para fondos alternos */
+            --color-text-main: #4A4A4A;    /* Gris oscuro para texto principal */
+            --color-text-secondary: #777777; /* Gris medio para secundario */
+            
+            --font-title: 'Dancing Script', cursive;
+            --font-body: 'Montserrat', sans-serif;
+            
+            --transition-speed: 0.3s;
+        }
+
+        /* --- RESET Y ESTILOS GLOBALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text-main);
+            background-color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-speed);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- TIPOGRAFÍA --- */
+        h1, h2, h3 {
+            font-family: var(--font-title);
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 3rem;
+            color: var(--color-gold);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h2 { font-size: 2.2rem; }
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- BOTONES --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--color-gold);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-white);
+            color: var(--color-gold);
+            border-color: var(--color-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border-color: var(--color-white);
+            color: var(--color-white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-white);
+            color: var(--color-pink-dark);
+        }
+
+        /* --- HEADER Y NAVEGACIÓN --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            color: var(--color-text-main);
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--color-gold);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-text-main);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-gold);
+            transition: width var(--transition-speed);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION (INICIO) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+            padding: 0 1rem;
+            margin-top: 60px; /* Offset header height */
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        /* --- SERVICIOS --- */
+        .services {
+            padding: 5rem 10%;
+            background-color: var(--color-pink-soft);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--color-white);
+            padding: 2.5rem;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform var(--transition-speed);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-main);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            display: block;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--color-pink-dark);
+        }
+
+        /* --- SOBRE NOSOTROS --- */
+        .about {
+            padding: 5rem 10%;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            background-color: var(--color-white);
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .about-image img {
+            border-radius: 10px;
+            box-shadow: 20px 20px 0 var(--color-pink-soft);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-gold);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* --- GALERÍA --- */
+        .gallery {
+            padding: 5rem 5%;
+            background-color: var(--color-grey-light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* --- TESTIMONIOS --- */
+        .testimonials {
+            padding: 5rem 10%;
+            background-color: var(--color-white);
+            text-align: center;
+        }
+
+        .testimonial-card {
+            max-width: 700px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: var(--color-text-main);
+            margin-bottom: 1.5rem;
+        }
+
+        .stars {
+            color: var(--color-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- CONTACTO --- */
+        .contact {
+            padding: 5rem 10%;
+            background-color: var(--color-pink-soft);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            background: var(--color-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .contact-info {
+            flex: 1;
+            padding: 3rem;
+            background: var(--color-gold);
+            color: var(--color-white);
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-body);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-form {
+            flex: 1.5;
+            padding: 3rem;
+            min-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+
+        .form-group input, 
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: var(--font-body);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-gold);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #333;
+            color: var(--color-white);
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--color-white);
+            font-size: 1.2rem;
+            margin: 0 10px;
+        }
+
+        .social-links a:hover {
+            color: var(--color-gold);
+        }
+
+        /* --- ANIMACIONES --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- MEDIA QUERIES (Mobile) --- */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--color-white);
+                padding: 1rem 0;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .about {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Ana Style <span>Estética</span></div>
+        <div class="mobile-menu-btn" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Realza tu belleza natural</h1>
+            <p>Tratamientos estéticos exclusivos en Santa Ponsa con un toque de elegancia y armonía.</p>
+            <a href="#contacto" class="btn btn-primary">Reserva tu Cita</a>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="services">
+        <h2>Nuestros Servicios</h2>
+        <p class="section-subtitle">Cuidado experto para ti</p>
+        
+        <div class="services-grid">
+            <!-- Servicio 1 -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-gem"></i></div>
+                <h3>Manicura Premium</h3>
+                <p>Diseños exclusivos, cuidado de cutículas y esmaltado de larga duración con productos de alta calidad.</p>
+                <span class="price">Desde 25€</span>
+            </div>
+            <!-- Servicio 2 -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-spa"></i></div>
+                <h3>Faciales Rejuvenecedores</h3>
+                <p>Limpieza profunda, hidratación y tratamientos anti-edad personalizados para tu tipo de piel.</p>
+                <span class="price">Desde 45€</span>
+            </div>
+            <!-- Servicio 3 -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-eye"></i></div>
+                <h3>Extensiones de Pestañas</h3>
+                <p>Mirada impactante con nuestras técnicas de volumen y lifting natural.</p>
+                <span class="price">Desde 50€</span>
+            </div>
+            <!-- Servicio 4 -->
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-hand-sparkles"></i></div>
+                <h3>Masajes Relajantes</h3>
+                <p>Desconecta del estrés con nuestros masajes corporales con aceites esenciales.</p>
+                <span class="price">Desde 40€</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="nosotros" class="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=2070&auto=format&fit=crop" alt="Equipo de estética trabajando">
+        </div>
+        <div class="about-text">
+            <h3>Nuestra Filosofía</h3>
+            <p>En <strong>Ana Style Estética</strong>, creemos que la belleza es un reflejo de la salud y la armonía interior. Ubicados en el corazón de Santa Ponsa, Mallorca, ofrecemos un refugio de tranquilidad donde cada detalle está pensado para tu bienestar.</p>
+            <p>Nuestro equipo profesional combina técnicas vanguardistas con un trato cercano y personalizado. Utilizamos solo productos de primera calidad para garantizar resultados visibles y duraderos.</p>
+            <a href="#galeria" class="btn btn-primary">Ver Resultados</a>
+        </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria" class="gallery">
+        <h2>Galería</h2>
+        <p class="section-subtitle">Antes y Después</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1974&auto=format&fit=crop" alt="Uñas decoradas">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1512290923902-8a9281327723?q=80&w=1974&auto=format&fit=crop" alt="Tratamiento facial">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=2070&auto=format&fit=crop" alt="Productos de belleza">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2069&auto=format&fit=crop" alt="Ambiente relajado">
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonials">
+        <h2>Lo que dicen nuestras clientas</h2>
+        <br>
+        <div class="testimonial-card">
+            <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"El mejor centro de estética en Santa Ponsa. Me hice las uñas y un tratamiento facial y salí encantada. El ambiente es súper relajante y Ana es una profesional increíble."</p>
+            <p class="client-name"><strong>- María González</strong></p>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contact">
+        <h2>Reserva tu Cita</h2>
+        <p class="section-subtitle">Estamos deseando atenderte</p>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Av. del Rey Jaume I, 123, Santa Ponsa, Mallorca</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+34 600 123 456</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>citas@anastyle.com</p>
+                </div>
+                <div class="info-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <p>WhatsApp disponible</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="bookingForm" onsubmit="handleBooking(event)">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="tel" placeholder="Tu teléfono" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Servicio de interés</label>
+                        <select>
+                            <option value="manicura">Manicura / Pedicura</option>
+                            <option value="facial">Tratamiento Facial</option>
+                            <option value="pestañas">Pestañas y Cejas</option>
+                            <option value="masaje">Masaje Corporal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Mensaje (Opcional)</label>
+                        <textarea rows="4" placeholder="¿Tienes alguna preferencia horaria o duda?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitud</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p>&copy; 2023 Ana Style Estética. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Menú Hamburguesa para Móvil
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
+        }
+
+        // Simulación de envío de formulario (para conectar con Java Backend más tarde)
+        function handleBooking(event) {
+            event.preventDefault(); // Evita que la página se recargue
+            
+            // Aquí iría la lógica AJAX para enviar los datos a tu Servlet/Controller de Java
+            // Ej: fetch('/api/reservar', { method: 'POST', body: ... })
+            
+            alert("¡Gracias por tu solicitud! \n\nEsta es una versión de prueba. En la versión final, estos datos se enviarán al servidor Java para gestionar la cita.");
+            
+            // Limpiar formulario
+            document.getElementById('bookingForm').reset();
+        }
+
+        // Smooth Scroll para los enlaces del menú
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Cerrar menú móvil al hacer click
+                document.getElementById('nav-list').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
