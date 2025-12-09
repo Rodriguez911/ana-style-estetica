@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería | Ana Style Estética</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Base Styles */
+        :root { --color-pink-soft: #F9EBEA; --color-pink-dark: #D4A5A5; --color-white: #FFFFFF; --color-gold: #C5A059; --color-text-main: #4A4A4A; --font-title: 'Dancing Script', cursive; --font-body: 'Montserrat', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); color: var(--color-text-main); }
+        header { position: sticky; top: 0; background: rgba(255,255,255,0.95); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 1000; }
+        .logo { font-family: var(--font-title); font-size: 2rem; font-weight: bold; }
+        .logo span { color: var(--color-gold); }
+        nav ul { display: flex; gap: 2rem; list-style: none; }
+        nav a { text-decoration: none; color: inherit; transition: 0.3s; }
+        nav a:hover, nav a.active { color: var(--color-gold); border-bottom: 2px solid var(--color-gold); }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; }
+        @media (max-width: 768px) { nav ul { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: white; flex-direction: column; text-align: center; padding: 1rem; box-shadow: 0 5px 10px rgba(0,0,0,0.1); } nav ul.active { display: flex; } .mobile-menu-btn { display: block; } }
+
+        /* Gallery Grid */
+        .gallery-section { padding: 4rem 5%; text-align: center; }
+        .gallery-section h1 { font-family: var(--font-title); font-size: 3rem; color: var(--color-gold); margin-bottom: 3rem; }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .gallery-item {
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        
+        footer { background: #333; color: white; padding: 2rem; text-align: center; margin-top: 2rem;}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Ana Style <span>Estética</span></div>
+        <div class="mobile-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="galeria.html" class="active">Galería</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="gallery-section">
+        <h1>Nuestros Trabajos</h1>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=1000" alt="Uñas detalle"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1000" alt="Facial"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000" alt="Productos"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1000" alt="Manicura rosa"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1512290923902-8a9281327723?q=80&w=1000" alt="Spa"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1000" alt="Tratamiento"></div>
+        </div>
+    </section>
+
+    <footer><p>&copy; 2026 Ana Style Estética.</p></footer>
+    <script>function toggleMenu() { document.getElementById('nav-list').classList.toggle('active'); }</script>
+</body>
+</html>
